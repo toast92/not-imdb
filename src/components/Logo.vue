@@ -4,7 +4,7 @@ defineProps({
     type: String,
     required: true
   }
-})
+});
 </script>
 
 <template>
@@ -15,11 +15,11 @@ defineProps({
 
 <style scoped>
 .logo {
-    font-family: 'Montserrat', sans-serif;    
-    text-align: left;
-    font-weight: 700;
-    background-color: var(--text-color);
-    color: var(--secondary-color);
-    width: 200px;
-  }
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  font-weight: 700;
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+  width: 200px;
+}
 </style>

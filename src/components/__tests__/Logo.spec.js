@@ -5,7 +5,7 @@ import Logo from '../Logo.vue';
 
 describe('Logo', () => {
   it('renders properly', () => {
-    const wrapper = mount(Logo, { props: { name: 'Hello Vitest' } })
-    expect(wrapper.text()).toContain('Hello Vitest')
+    const wrapper = mount(Logo, { props: { name: 'Hello Vitest' } });
+    expect(wrapper.text()).toContain('Hello Vitest');
   });
 });
