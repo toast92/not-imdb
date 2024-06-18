@@ -5,13 +5,12 @@ import TvShowCarousel from '@/components/TvShowCarousel.vue';
 
 const tvShowStore = useTvShowsStore();
 tvShowStore.getTvShows();
-const genres = ['Drama', 'Comedy', 'Science-Fiction', 'Fantasy', 'Sports'];
 </script>
 
 <template>
   <main>
     <h3>List of tv-shows by genre ordered by rating</h3>
-    <tv-show-carousel v-for="genre in genres" :key="genre" :genre="genre">
+    <tv-show-carousel v-for="genre in tvShowStore.getAllGenres" :key="genre" :genre="genre">
       <tv-show-card
         v-for="show in tvShowStore.sortTvShowsByRating(genre)"
         :id="show.id"

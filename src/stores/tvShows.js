@@ -1,29 +1,49 @@
 import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
 
-export const useTvShowsStore = defineStore('tvShows', {
-  state: () => ({
-    tvShows: []
-  }),
+export const useTvShowsStore = defineStore('tvShows', () => {
+  const tvShowsByGenre = ref({});
 
-  getters: {
-    getTvShowsByGenre: (state) => {
-      return (genre) => state.tvShows.filter((tvShow) => tvShow.genres.includes(genre));
-    },
+  const compareRatings = (firstShow, secondShow) => {
+    return secondShow.rating.average - firstShow.rating.average;
+  };
 
-    compareRatings: () => {
-      return (firstShow, secondShow) => secondShow.rating.average - firstShow.rating.average;
-    },
-
-    sortTvShowsByRating: (getters) => {
-      return (genre) => getters.getTvShowsByGenre(genre).sort(getters.compareRatings);
+  const sortTvShowsByRating = (genre) => {
+    if (tvShowsByGenre.value[genre]) {
+      return tvShowsByGenre.value[genre].sort(compareRatings);
     }
-  },
-  actions: {
-    getTvShows() {
-      fetch('https://api.tvmaze.com/shows')
-        .then((response) => response.json())
-        .then((data) => (this.tvShows = data))
-        .catch((error) => console.error('Error:', error));
-    }
-  }
+    return [];
+  };
+
+  const getAllGenres = computed(() => {
+    return Object.keys(tvShowsByGenre.value);
+  });
+
+  const getAllShowsByGenre = (shows) => {
+    shows.forEach(show => {
+      show.genres.forEach(genre => {
+        if (!tvShowsByGenre.value[genre]) {
+          tvShowsByGenre.value[genre] = [];
+        }
+        tvShowsByGenre.value[genre].push(show);
+      });
+    });
+    return tvShowsByGenre.value;
+  };
+
+  const getTvShows = () => {
+    fetch('https://api.tvmaze.com/shows')
+      .then((response) => response.json())
+      .then(data => getAllShowsByGenre(data))
+      .catch((error) => console.error('Error:', error));
+  };
+
+  return {
+    tvShowsByGenre,
+    compareRatings,
+    sortTvShowsByRating,
+    getAllGenres,
+    getAllShowsByGenre,
+    getTvShows,
+  };
 });
