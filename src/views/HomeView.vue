@@ -5,54 +5,15 @@ import TvShowCarousel from '@/components/TvShowCarousel.vue';
 
 const tvShowStore = useTvShowsStore();
 tvShowStore.getTvShows();
+const genres = ['Drama', 'Comedy', 'Science-Fiction', 'Fantasy', 'Sports'];
 </script>
 
 <template>
   <main>
     <h3>List of tv-shows by genre ordered by rating</h3>
-      <tv-show-carousel genre="Drama">
-        <tv-show-card
-        v-for="show in tvShowStore.sortTvShowsByRating('Drama')"
-        :id="show.id"
-        :key="show.id"
-        :name="show.name"
-        :rating="show.rating.average"
-        :imageSrc="show.image.medium"
-      ></tv-show-card>
-    </tv-show-carousel>
-    <tv-show-carousel genre="Comedy">
-        <tv-show-card
-        v-for="show in tvShowStore.sortTvShowsByRating('Comedy')"
-        :id="show.id"
-        :key="show.id"
-        :name="show.name"
-        :rating="show.rating.average"
-        :imageSrc="show.image.medium"
-      ></tv-show-card>
-    </tv-show-carousel>
-    <tv-show-carousel genre="Science-Fiction">
-        <tv-show-card
-        v-for="show in tvShowStore.sortTvShowsByRating('Science-Fiction')"
-        :id="show.id"
-        :key="show.id"
-        :name="show.name"
-        :rating="show.rating.average"
-        :imageSrc="show.image.medium"
-      ></tv-show-card>
-    </tv-show-carousel>
-    <tv-show-carousel genre="Fantasy">
-        <tv-show-card
-        v-for="show in tvShowStore.sortTvShowsByRating('Fantasy')"
-        :id="show.id"
-        :key="show.id"
-        :name="show.name"
-        :rating="show.rating.average"
-        :imageSrc="show.image.medium"
-      ></tv-show-card>
-    </tv-show-carousel>
-    <tv-show-carousel genre="Sports">
-        <tv-show-card
-        v-for="show in tvShowStore.sortTvShowsByRating('Sports')"
+    <tv-show-carousel v-for="genre in genres" :key="genre" :genre="genre">
+      <tv-show-card
+        v-for="show in tvShowStore.sortTvShowsByRating(genre)"
         :id="show.id"
         :key="show.id"
         :name="show.name"

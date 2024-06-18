@@ -2,7 +2,7 @@
 defineProps({
   id: {
     type: Number,
-    required: true,
+    required: true
   },
   name: {
     type: String,
@@ -20,14 +20,22 @@ defineProps({
 </script>
 
 <template>
-  <router-link :to="{ name: 'show', params: { id: id }}">
-    <div class="tv-show-card">
-      <h4>{{ name }}</h4>
+  <router-link :to="{ name: 'show', params: { id: id } }">
+    <div class="card">
+      <h3 class="card__title">{{ name }}</h3>
       <img :src="imageSrc" />
-      <span>{{ rating }}</span>
+      <span>{{ rating }} ⭐</span>
     </div>
   </router-link>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.card {
+  margin: 0 20px;
+}
+
+a {
+  color: #fbf5f3;
+  text-decoration: none;
+}
 </style>
