@@ -8,10 +8,17 @@ export const useTvShowsStore = defineStore('tvShows', {
   getters: {
     getTvShowsByGenre: (state) => {
       return (genre) => state.tvShows.filter((tvShow) => tvShow.genres.includes(genre));
+    },
+
+    compareRatings: () => {
+      return (firstShow, secondShow) => secondShow.rating.average - firstShow.rating.average;
+    },
+
+    sortTvShowsByRating: (getters) => {
+      return (genre) => getters.getTvShowsByGenre(genre).sort(getters.compareRatings);
     }
   },
   actions: {
-    // since we rely on `this`, we cannot use an arrow function
     getTvShows() {
       fetch('https://api.tvmaze.com/shows')
         .then((response) => response.json())
