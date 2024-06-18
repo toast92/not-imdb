@@ -2,7 +2,6 @@
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const showId = route.params.id;
-
 </script>
 <template>
   <div class="about">

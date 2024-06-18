@@ -18,8 +18,6 @@ defineProps({
   font-family: 'Montserrat', sans-serif;
   text-align: left;
   font-weight: 700;
-  background-color: var(--text-color);
-  color: var(--secondary-color);
   width: 200px;
 }
 </style>

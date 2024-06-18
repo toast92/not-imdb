@@ -1,5 +1,4 @@
 <script setup>
-
 defineProps({
   genre: {
     type: String,
@@ -9,14 +8,15 @@ defineProps({
 </script>
 
 <template>
-    <h2>{{ genre }}</h2>
-    <div class="carousel">
-        <slot></slot>
-    </div>
+  <h2>{{ genre }}</h2>
+  <div class="carousel">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped lang="scss">
-    .carousel {
-        display: flex;
-    }
+.carousel {
+  display: flex;
+  overflow: scroll;
+}
 </style>
