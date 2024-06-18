@@ -1,6 +1,12 @@
+<script setup>
+import { useRoute } from 'vue-router';
+const route = useRoute();
+const showId = route.params.id;
+
+</script>
 <template>
   <div class="about">
-    <h1>This is a tv show page</h1>
+    <h1>This is a tv show page for tvShow: {{ showId }}</h1>
   </div>
 </template>
 

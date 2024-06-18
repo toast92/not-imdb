@@ -10,7 +10,6 @@ import Logo from './components/Logo.vue';
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
@@ -21,7 +20,6 @@ import Logo from './components/Logo.vue';
 <style scoped>
 header {
   line-height: 1.5;
-  max-height: 100vh;
 }
 
 .logo {
