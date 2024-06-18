@@ -1,12 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Logo from './components/Logo.vue'
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="IMDB" />
+      <Logo name="Not-IMDB" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
