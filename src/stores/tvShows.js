@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 
 export const useTvShowsStore = defineStore('tvShows', () => {
   const tvShowsByGenre = ref({});
+  const tvShows = ref([]);
   const tvShowDetails = ref({});
 
   const getAllGenres = computed(() => {
@@ -41,6 +42,7 @@ export const useTvShowsStore = defineStore('tvShows', () => {
   const getTvShows = () => {
     fetch('https://api.tvmaze.com/shows')
       .then((response) => response.json())
+      .then((data) => (tvShows.value = data))
       .then((data) => getAllShowsByGenre(data))
       .catch((error) => console.error('Error:', error));
   };
@@ -57,6 +59,7 @@ export const useTvShowsStore = defineStore('tvShows', () => {
     tvShowsByGenre,
     tvShowDetails,
     getAllGenres,
+    tvShows,
     compareRatings,
     sortTvShowsByRating,
     getAllShowsByGenre,
