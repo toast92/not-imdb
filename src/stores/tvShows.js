@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 
 export const useTvShowsStore = defineStore('tvShows', () => {
   const tvShowsByGenre = ref({});
+  const tvShowDetails = ref({});
 
   const compareRatings = (firstShow, secondShow) => {
     return secondShow.rating.average - firstShow.rating.average;
@@ -40,12 +41,21 @@ export const useTvShowsStore = defineStore('tvShows', () => {
       .catch((error) => console.error('Error:', error));
   };
 
+  const getTvShowById = (id) => {
+    fetch(`https://api.tvmaze.com/shows/${id}`)
+    .then((response) => response.json())
+    .then(data => tvShowDetails.value = data)
+    .catch(error => console.error('Error:', error))
+  };
+
   return {
     tvShowsByGenre,
+    tvShowDetails,
     compareRatings,
     sortTvShowsByRating,
     getAllGenres,
     getAllShowsByGenre,
     getTvShows,
+    getTvShowById
   };
 });
