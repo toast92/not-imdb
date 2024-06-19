@@ -10,7 +10,7 @@ defineProps({
   },
   rating: {
     type: Number,
-    required: true
+    required: false
   },
   imageSrc: {
     type: String,
@@ -22,8 +22,8 @@ defineProps({
 <template>
   <router-link :to="{ name: 'show', params: { id: id } }">
     <div class="card">
+      <img :src="imageSrc" loading="lazy" />
       <h3 class="card__title">{{ name }}</h3>
-      <img :src="imageSrc" />
       <span>{{ rating }} ⭐</span>
     </div>
   </router-link>

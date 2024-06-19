@@ -7,7 +7,6 @@ import PageLogo from './components/PageLogo.vue';
   <header>
     <div class="wrapper">
       <page-logo name="Not-IMDB" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
       </nav>
@@ -20,6 +19,8 @@ import PageLogo from './components/PageLogo.vue';
 <style scoped>
 header {
   line-height: 1.5;
+  background-color: #6874e8;
+  width: 100vw;
 }
 
 .logo {
@@ -53,12 +54,6 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
   .logo {
     margin: 0 2rem 0 0;
   }

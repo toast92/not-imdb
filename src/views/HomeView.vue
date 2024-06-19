@@ -2,9 +2,15 @@
 import { useTvShowsStore } from '@/stores/tvShows';
 import TvShowCard from '@/components/TvShowCard.vue';
 import TvShowCarousel from '@/components/TvShowCarousel.vue';
+import { onMounted } from 'vue';
 
 const tvShowStore = useTvShowsStore();
-tvShowStore.getTvShows();
+
+onMounted(() => {
+  if (Object.keys(tvShowStore.tvShowsByGenre).length === 0) {
+    tvShowStore.getTvShows();
+  }
+});
 </script>
 
 <template>

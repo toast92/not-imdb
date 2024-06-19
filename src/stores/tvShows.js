@@ -10,7 +10,7 @@ export const useTvShowsStore = defineStore('tvShows', () => {
 
   const sortTvShowsByRating = (genre) => {
     if (tvShowsByGenre.value[genre]) {
-      return tvShowsByGenre.value[genre].sort(compareRatings);
+      return [...tvShowsByGenre.value[genre]].sort(compareRatings);
     }
     return [];
   };
@@ -20,14 +20,16 @@ export const useTvShowsStore = defineStore('tvShows', () => {
   });
 
   const getAllShowsByGenre = (shows) => {
+    const genreMap = {};
     shows.forEach(show => {
       show.genres.forEach(genre => {
-        if (!tvShowsByGenre.value[genre]) {
-          tvShowsByGenre.value[genre] = [];
+        if (!genreMap[genre]) {
+          genreMap[genre] = [];
         }
-        tvShowsByGenre.value[genre].push(show);
+        genreMap[genre].push(show);
       });
     });
+    tvShowsByGenre.value = genreMap;
     return tvShowsByGenre.value;
   };
 
