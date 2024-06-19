@@ -5,6 +5,10 @@ export const useTvShowsStore = defineStore('tvShows', () => {
   const tvShowsByGenre = ref({});
   const tvShowDetails = ref({});
 
+  const getAllGenres = computed(() => {
+    return Object.keys(tvShowsByGenre.value);
+  });
+
   const compareRatings = (firstShow, secondShow) => {
     return secondShow.rating.average - firstShow.rating.average;
   };
@@ -16,14 +20,10 @@ export const useTvShowsStore = defineStore('tvShows', () => {
     return [];
   };
 
-  const getAllGenres = computed(() => {
-    return Object.keys(tvShowsByGenre.value);
-  });
-
   const getAllShowsByGenre = (shows) => {
     const genreMap = {};
-    shows.forEach(show => {
-      show.genres.forEach(genre => {
+    shows.forEach((show) => {
+      show.genres.forEach((genre) => {
         if (!genreMap[genre]) {
           genreMap[genre] = [];
         }
@@ -37,23 +37,23 @@ export const useTvShowsStore = defineStore('tvShows', () => {
   const getTvShows = () => {
     fetch('https://api.tvmaze.com/shows')
       .then((response) => response.json())
-      .then(data => getAllShowsByGenre(data))
+      .then((data) => getAllShowsByGenre(data))
       .catch((error) => console.error('Error:', error));
   };
 
   const getTvShowById = (id) => {
     fetch(`https://api.tvmaze.com/shows/${id}`)
-    .then((response) => response.json())
-    .then(data => tvShowDetails.value = data)
-    .catch(error => console.error('Error:', error))
+      .then((response) => response.json())
+      .then((data) => (tvShowDetails.value = data))
+      .catch((error) => console.error('Error:', error));
   };
 
   return {
     tvShowsByGenre,
     tvShowDetails,
+    getAllGenres,
     compareRatings,
     sortTvShowsByRating,
-    getAllGenres,
     getAllShowsByGenre,
     getTvShows,
     getTvShowById
