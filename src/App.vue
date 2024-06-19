@@ -25,14 +25,14 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto 32px;
 }
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 
 nav a.router-link-exact-active {
@@ -45,7 +45,7 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 16px;
   border-left: 1px solid var(--color-border);
 }
 
@@ -55,7 +55,7 @@ nav a:first-of-type {
 
 @media (min-width: 1024px) {
   .logo {
-    margin: 0 2rem 0 0;
+    margin: 0 32px 0 0;
   }
 
   header .wrapper {
@@ -66,11 +66,11 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-    margin-left: -1rem;
+    margin-left: -16px;
     font-size: 1rem;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
+    padding: 16px 0;
+    margin-top: 16px;
   }
 }
 </style>

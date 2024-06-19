@@ -34,6 +34,10 @@ export const useTvShowsStore = defineStore('tvShows', () => {
     return tvShowsByGenre.value;
   };
 
+  const resetTvShowState = () => {
+    return (tvShowDetails.value = {});
+  };
+
   const getTvShows = () => {
     fetch('https://api.tvmaze.com/shows')
       .then((response) => response.json())
@@ -42,6 +46,7 @@ export const useTvShowsStore = defineStore('tvShows', () => {
   };
 
   const getTvShowById = (id) => {
+    resetTvShowState();
     fetch(`https://api.tvmaze.com/shows/${id}`)
       .then((response) => response.json())
       .then((data) => (tvShowDetails.value = data))

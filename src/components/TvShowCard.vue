@@ -30,6 +30,11 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
+a {
+  &:hover {
+    background-color: #162635;
+  }
+}
 .card {
   margin: 0 20px;
 }
