@@ -45,12 +45,10 @@ npm run test:unit
 
 ### Notes
 
-- [x] Preferably complete this assessment using this VueJS.
+- [x] Preferably complete this assessment using VueJS.
 - [x] Application must be responsive and mobile friendly
 - [x] Keep the leverage/use of scaffolding tools, boilerplate templates, plugins etc. to a minimum
-- [x] Please create a readme file that explains your architectural decisions (E.G. why did you choose a
-      specific framework) and make sure you include instructions on how to run your solution, add
-      details about NodeJS version being used and NPM.
-- [] Please include unit tests
+- [x] Please create a readme file that explains your architectural decisions 
+- [] Include unit tests
 - [x] Please check that application is running and there are no console errors before sending it to us
-- [] Please make sure that the UI is simple yet eye-catching
+- [] Make sure that the UI is simple yet eye-catching - to be honest, for this one I think the UI is quite simple, not sure about the eye-catching part.
