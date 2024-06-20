@@ -72,12 +72,11 @@ const getYear = (dateString) => {
 
 <style scoped lang="scss">
 h1 {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
+  margin: 16px 0 0 0;
 }
+
 .details-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px 0;
   &__left {
     display: flex;
@@ -88,7 +87,23 @@ h1 {
   &__right {
     display: flex;
     div {
-      margin: 0 0 0 24px;
+      margin: 0 24px 0 0;
+    }
+  }
+}
+
+@media (min-width: 780px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  .details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__right {
+        div {
+          margin: 0 24px 0 24px;
+        }
     }
   }
 }

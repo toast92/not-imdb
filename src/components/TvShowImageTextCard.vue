@@ -36,12 +36,11 @@ defineProps({
 
 <style scoped lang="scss">
 .card {
-  display: flex;
+  
   &__image {
     max-height: 500px;
   }
   &__text {
-    margin: 0 30px;
     p {
       padding-top: 20px;
     }
@@ -52,6 +51,15 @@ defineProps({
       li {
         margin: 10px 10px 0 0;
       }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    display: flex;
+    &__text {
+      margin: 0 30px;
     }
   }
 }

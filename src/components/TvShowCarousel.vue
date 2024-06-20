@@ -17,14 +17,14 @@ defineProps({
 
 <style scoped lang="scss">
 h2 {
-  margin: 32px 0 32px 48px;
+  margin: 32px 0 0 48px;
   font-size: 1.75rem;
 }
 .carousel {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  margin: 32px;
+  margin: 0 32px 32px 32px;
 }
 
 .carousel::-webkit-scrollbar {
