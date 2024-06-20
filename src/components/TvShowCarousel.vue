@@ -2,6 +2,7 @@
 defineProps({
   genre: {
     type: String,
+    default: '',
     required: true
   }
 });
@@ -15,14 +16,20 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
+h2 {
+  margin: 32px 0 32px 48px;
+  font-size: 1.75rem;
+}
 .carousel {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
+  margin: 32px;
 }
 
 .carousel::-webkit-scrollbar {
-  height: 14px;
+  height: 12px;
+  margin-left: -16px;
 }
 
 .carousel::-webkit-scrollbar-track {

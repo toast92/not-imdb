@@ -31,7 +31,6 @@ const filteredShows = computed(() => {
 <template>
   <main>
     <search-bar @search="handleSearch" />
-    <h3>List of tv-shows by genre ordered by rating</h3>
     <div v-show="!searchQuery">
       <tv-show-carousel v-for="genre in tvShowStore.getAllGenres" :key="genre" :genre="genre">
         <tv-show-card

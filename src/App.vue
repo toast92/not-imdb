@@ -2,14 +2,12 @@
 import { RouterLink, RouterView } from 'vue-router';
 import PageLogo from './components/PageLogo.vue';
 </script>
-
 <template>
   <header>
     <div class="wrapper">
-      <page-logo name="Not-IMDB" />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
+      <RouterLink to="/">
+        <page-logo name="Not-IMDB" />
+      </RouterLink>
     </div>
   </header>
 
@@ -21,6 +19,7 @@ header {
   line-height: 1.5;
   background-color: #6874e8;
   width: 100vw;
+  padding: 32px;
 }
 
 .logo {
@@ -28,29 +27,9 @@ header {
   margin: 0 auto 32px;
 }
 
-nav {
-  width: 100%;
-  font-size: 0.75rem;
-  text-align: center;
-  margin-top: 32px;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 16px;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
+a {
+  color: white;
+  text-decoration: none;
 }
 
 @media (min-width: 1024px) {
@@ -60,17 +39,10 @@ nav a:first-of-type {
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -16px;
-    font-size: 1rem;
-
-    padding: 16px 0;
-    margin-top: 16px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
   }
 }
 </style>

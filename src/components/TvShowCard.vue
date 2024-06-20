@@ -31,6 +31,10 @@ defineProps({
 
 <style scoped lang="scss">
 a {
+  display: flex;
+  align-items: center;
+  padding: 12px 0 0 0;
+  margin-bottom: 16px;
   &:hover {
     background-color: #162635;
   }

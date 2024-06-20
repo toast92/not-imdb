@@ -15,6 +15,7 @@ onMounted(() => {
 </script>
 <template>
   <section class="show-details">
+    <RouterLink to="/">&lt; Back</RouterLink>
     <tv-show-details-header
       :name="tvShowStore.tvShowDetails.name"
       :premiereDate="tvShowStore.tvShowDetails.premiered"
@@ -40,6 +41,13 @@ onMounted(() => {
   font-size: 1.2rem;
   margin: 0 auto;
   padding: 32px;
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
