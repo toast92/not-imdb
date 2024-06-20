@@ -26,7 +26,8 @@ I have to admit, this was one of the hardest parts of the assignment for me, as 
 
 What I did in my transformer function was to loop over all the tv shows I was getting, then inside that loop go over all the genres they were assigned to and then check if my new `tvShowsByGenre` object already had the genre as a key. If it had it, it would move on to push the tv show into an array assigned to that key. Otherwise, it would create the genre key and assign an empty array to it. After transforming my data, I now had an object that looked something like this:
 
-```tvShowsByGenre = {
+```
+tvShowsByGenre = {
     Drama: [
         {
             name: "Breaking Bad",
@@ -47,7 +48,8 @@ What I did in my transformer function was to loop over all the tv shows I was ge
             runtime: 27
         }
     ]
-}```
+}
+```
 
 Note: I oversimplified the above structure as there was much more data per tv show. So now I had an object that contained all the tv shows organized by genre, yay!
 

@@ -46,7 +46,7 @@ npm run test:unit
 ### Notes
 
 - [x] Preferably complete this assessment using VueJS.
-- [x] Application must be responsive and mobile friendly
+- [x] Application must be responsive and mobile friendly - It is responsive, but the tv show details page could use some improvements
 - [x] Keep the leverage/use of scaffolding tools, boilerplate templates, plugins etc. to a minimum
 - [x] Please create a readme file that explains your architectural decisions 
 - [] Include unit tests
